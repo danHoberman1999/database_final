@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Important to make website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataPharm</title>
+
+    <!-- Link our CSS file -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar Section Starts Here -->
+    <section class="navbar">
+      <div class="container">
+        <div class="logo">
+          <img
+            src="images/pharmacy-logo.png"
+            alt="pharmacy-logo"
+            class="pharmacy-logo"
+          />
+          <a href="#" title="Logo" class="logoname"> DataPharm </a>
+        </div>
+
+        <div class="menu text-right">
+          <ul>
+            <li>
+              <a href="https://github.com/danHoberman1999">Github</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+    </section>
+    <!-- Navbar Section Ends Here -->
+
+    <!-- Search container -->
+    <section class="search text-center">
+      <div class="container">
+        <form action="Search.html" method="POST">
+          <input
+            class="search-input"
+            type="search"
+            name="search"
+            placeholder="Search for Info"
+            required
+          />
+          <input
+            type="submit"
+            name="submit"
+            value="Search"
+            class="btn btn-primary"
+          />
+        </form>
+      </div>
+    </section>
+    <!-- Search container ends here-->
+
+    <!-- Choose Role-->
+    <section class="role">
+      <div class="container">
+        <h2 class="text-center">Choose Job..</h2>
+
+        <a href="http://localhost/DataPharm/admin/doctor/doctor.php">
+          <div class="box-3 float-container">
+            <img
+              src="images/doctor.jpeg"
+              alt="Doctor"
+              class="img-responsive img-curve"
+            />
+
+            <h3 class="caption">Doctor</h3>
+          </div>
+        </a>
+
+        <a href="http://localhost/DataPharm/admin/pharmacist/pharmacist.php">
+          <div class="box-3 float-container">
+            <img
+              src="images/pharmacist.jpeg"
+              alt="Pharmacist"
+              class="img-responsive img-curve"
+            />
+
+            <h3 class="caption">Pharmacist</h3>
+          </div>
+        </a>
+
+        <div class="clearfix"></div>
+      </div>
+    </section>
+    <!-- Choose role end-->
+
+    <!-- Website Description Section Here-->
+    <section class="social">
+      <div class="container">
+        <h2 class="text-center">What we do</h2>
+        <div class="box-3 float-container">
+          <img
+            src="images/patient.svg"
+            alt="Patient"
+            class="img-responsive img-curve"
+          />
+
+          <h3 class="caption1">
+            Provide Doctors and Pharmacists with information on patients
+          </h3>
+        </div>
+
+        <div class="box-3 float-container">
+          <img
+            src="images/order.svg"
+            alt="Orders"
+            class="img-responsive img-curve"
+          />
+
+          <h3 class="caption1">Allow Doctors to prescribe medications</h3>
+        </div>
+
+        <div class="box-3 float-container">
+          <img
+            src="images/medicine.svg"
+            alt="Medicine"
+            class="img-responsive img-curve"
+          />
+
+          <h3 class="caption1">
+            Pharmacists can order medications to local pharmacies
+          </h3>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+    </section>
+    <!-- Website Description Section Ends Here-->
+
+    <!-- footer Section Starts Here -->
+    <section class="footer">
+      <div class="container text-center">
+        <p>All rights reserved. Designed By <a href="#">Daniel Hoberman</a></p>
+      </div>
+    </section>
+    <!-- footer Section Ends Here -->
+  </body>
+</html>
