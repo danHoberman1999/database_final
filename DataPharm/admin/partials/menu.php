@@ -13,7 +13,7 @@
                 <ul>
                     <li><a href="http://localhost/DataPharm/">Home</a></li>
                     <li><a href="http://localhost/DataPharm/admin/doctor/doctor.php">Patient Console</a></li>
-                    <li><a href="https://github.com/danHoberman1999">Github</a></li>
+                    <li><a href="http://localhost/DataPharm/admin/statistics/statistics.php">Statistics</a></li>
                 </ul>
             </div>
             

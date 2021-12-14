@@ -4,7 +4,7 @@
         <!-- Main Content Section Starts -->
         <div class="main-content">
             <div class="wrapper">
-                <h1>Pharmacy Console</h1>
+                <h1>Pharmacist Console</h1>
                 <br/><br/>
                 <br/>
                 <table class="tbl-full">
@@ -51,8 +51,9 @@
                                             <td><?php echo $sex ?></td>
                                             <td><?php echo $age ?></td>
                                             <td>
-                                                <a href="<?php echo SITEURL; ?>admin/pharmacist/view-orders.php?id=<?php echo $id; ?> " class="btn-secondary">View Orders</a>
-                                                <a href="<?php echo SITEURL; ?>admin/pharmacist/pharmacy-order.php?id=<?php echo $id; ?>" class="btn-danger">Order to Pharmacy</a>  
+                                                <a href="<?php echo SITEURL; ?>admin/pharmacist/view-orders.php?id=<?php echo $id; ?> " class="btn-primary">View Med Orders</a>
+                                                <a href="<?php echo SITEURL; ?>admin/pharmacist/goods-purchase.php?id=<?php echo $id; ?> " class="btn-secondary">Make Pharmacy Purchase</a>
+                                                <a href="<?php echo SITEURL; ?>admin/pharmacist/choose-pharmacy.php?id=<?php echo $id; ?>" class="btn-danger">Choose Pharmacy</a>  
                                             </td>
                                         </tr>
 
@@ -74,4 +75,4 @@
         </div>
         <!-- Main Content Section Ends -->
 
-<?php include('./pharmacy-partials/footer.php'); ?>
+        <?php include ('../pharmacy-partials/footer.php'); ?>

@@ -82,7 +82,7 @@
 </div>
 
 
-<?php include('partials/footer.php'); ?>
+<?php include('../partials/footer.php'); ?>
 
 <?php
 
@@ -116,7 +116,7 @@
             diagnosis = '$diagnosis',
             city = '$city',
             state= '$state'
-            WHERE id='$id'
+            WHERE patient_id='$id'
         ";
 
 
@@ -131,13 +131,13 @@
         {
             //Data Inserted
             //Redirect Page
-            //header("location: ".SITEURL."admin/doctor/doctor.php");
+            header("location: ".SITEURL."admin/doctor/doctor.php");
         }
         else
         {
             //Failed to insert Data
             //Redirect Page
-            //header("location: ".SITEURL."admin/doctor/add-patient.php");
+            header("location: ".SITEURL."admin/doctor/add-patient.php");
         }
     }
 

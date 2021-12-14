@@ -53,10 +53,10 @@
                                             <td><?php echo $sex ?></td>
                                             <td><?php echo $age ?></td>
                                             <td>
-                                                <a href="<?php echo SITEURL; ?>admin/doctor/update-patient.php?id=<?php echo $id; ?> " class="btn-secondary">Update Info</a>
-                                                <a href="<?php echo SITEURL; ?>admin/doctor/more-info-patient.php?id=<?php echo $id; ?>" class="btn-danger">More Info</a>
-                                                <a href="<?php echo SITEURL; ?>admin/doctor/file-order.php?id=<?php echo $id; ?>" class="btn-danger">File Order</a>
-                                                <a href="<?php echo SITEURL; ?>admin/doctor/delete-patient.php?id=<?php echo $id; ?> " class="btn-secondary">Delete Info</a>
+                                                <a href="<?php echo SITEURL; ?>admin/doctor/update-patient.php?id=<?php echo $id; ?> " class="btn-primary">Update Info</a>
+                                                <a href="<?php echo SITEURL; ?>admin/doctor/more-info-patient.php?id=<?php echo $id; ?>" class="btn-secondary">More Info</a>
+                                                <a href="<?php echo SITEURL; ?>admin/doctor/file-order.php?id=<?php echo $id; ?>" class="btn-dark">File Order</a>
+                                                <a href="<?php echo SITEURL; ?>admin/doctor/delete-patient.php?id=<?php echo $id; ?> " class="btn-danger">Delete Info</a>
                                                 
                                             </td>
                                         </tr>
@@ -79,4 +79,4 @@
         </div>
         <!-- Main Content Section Ends -->
 
-<?php include('./partials/footer.php'); ?>
+        <?php include('../partials/footer.php'); ?>

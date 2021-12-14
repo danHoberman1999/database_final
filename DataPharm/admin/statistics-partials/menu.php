@@ -12,7 +12,6 @@
             <div class="wrapper">
                 <ul>
                     <li><a href="http://localhost/DataPharm/">Home</a></li>
-                    <li><a href="http://localhost/DataPharm/admin/pharmacist/pharmacist.php">Pharmacist Console</a></li>
                     <li><a href="http://localhost/DataPharm/admin/statistics/statistics.php">Statistics</a></li>
                 </ul>
             </div>

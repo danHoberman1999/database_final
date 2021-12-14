@@ -61,4 +61,4 @@
         </div>
         <!-- Main Content Section Ends -->
 
-<?php include('./partials/footer.php'); ?>
+        <?php include('../partials/footer.php'); ?>

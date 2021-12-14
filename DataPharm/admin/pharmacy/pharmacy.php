@@ -4,24 +4,20 @@
         <!-- Main Content Section Starts -->
         <div class="main-content">
             <div class="wrapper">
-                <h1>View Orders</h1>
+                <h1>Pharmacy Console</h1>
                 <br/><br/>
                 <br/>
                 <table class="tbl-full">
                     <tr>
-                        <th>Patient ID</th>
-                        <th>Date</th>
-                        <th>Prescribing Doctor</th>
-                        <th>Medicine Name</th>
-                        <th>Medicine ID</th>
-                        <th>Qty</th>
-                        <th>Reason for Prescription</th>
+                        <th>Pharmacy ID</th>
+                        <th>Pharmacy Name</th>
+                        <th>City</th>
+                        <th>State</th>
                     </tr>
 
                     <?php 
                         // Query to get all Admin
-                        $id = $_GET['id'];
-                        $sql = "SELECT * FROM prescription WHERE patient_id = $id";
+                        $sql = "SELECT * FROM pharmacy";
                         // Execut the Query
                         $res = mysqli_query($conn, $sql);
                         //check whether the Query is Executed or not
@@ -39,24 +35,21 @@
                                     //And while loop will run as long as we have data in database
 
                                     //Get individual data
-                                    $patient_id = $rows['patient_id'];
-                                    $med_id = $rows['med_id'];
-                                    $date = $rows['date'];
-                                    $dr_name = $rows['dr_name'];
-                                    $reason = $rows['reason'];
-                                    $qty = $rows['qty'];
-                                    $med_name = $rows['med_name'];
+                                    $id = $rows['pharmacy_id'];
+                                    $pharmacy_name = $rows['name'];
+                                    $city = $rows['city'];
+                                    $state = $rows['state'];
 
                                     //display the values in our table
                                     ?>
                                         <tr>
-                                            <td><?php echo $patient_id ?></td>
-                                            <td><?php echo $date ?></td>
-                                            <td><?php echo $dr_name ?></td>
-                                            <td><?php echo $med_name ?></td>
-                                            <td><?php echo $med_id ?></td>
-                                            <td><?php echo $qty ?></td>
-                                            <td><?php echo $reason ?></td>
+                                            <td><?php echo $id.'.' ?></td>
+                                            <td><?php echo $pharmacy_name ?></td>
+                                            <td><?php echo $city ?></td>
+                                            <td><?php echo $state ?></td>
+                                            <td>
+                                                <a href="<?php echo SITEURL; ?>admin/pharmacy/final-order.php?id=<?php echo $id; ?> " class="btn-primary">View Patients Orders</a>
+                                            </td>
                                         </tr>
 
                                     <?php
@@ -77,4 +70,4 @@
         </div>
         <!-- Main Content Section Ends -->
 
-        <?php include ('../pharmacy-partials/footer.php'); ?>
+<?php include('../pharmacy-partials/footer.php'); ?>

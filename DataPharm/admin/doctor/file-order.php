@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td>Medicine ID:</td>
-                    <td><input type="text" name ="med_id" placeholder="Enter medicine ID"> </td>
+                    <td><input type="number" name ="med_id" placeholder="Enter medicine ID" value="1" min="1" max="10"> </td>
                 </tr>
                 
                 <tr>
@@ -47,14 +47,34 @@
                     </td>
                 </tr>
             </table>
+            <div class="box-3 float-container">
+            <img
+              src="../../images/med_descriptions.png"
+              alt="medicines"
+              class="img-responsive img-curve"
+            />
+          </div>
         </form>
     </div>
+          
 </div>
 
 
-<?php include('partials/footer.php'); ?>
+<?php include('../partials/footer.php'); ?>
 
 <?php
+
+    $med1Price = 0.23;
+    $med2Price = 0.43;
+    $med3Price = 0.05;
+    $med4Price = 1.3;
+    $med5Price = 0.03;
+    $med6Price = 0.07;
+    $med7Price = 0.13;
+    $med8Price = 0.26;
+    $med9Price = 0.87;
+    $med10Price = 2.37;
+    $price;
 
     //Process the value from form and save it in database
     //Check whether the submit button is clicked or not
@@ -73,6 +93,49 @@
         $qty = $_POST['qty'];
         $reason = $_POST['reason'];
 
+        if ($med_id ==1)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==2)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==3)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==4)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==5)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==6)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==7)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==8)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==9)
+        {
+            $price = $med1Price * $qty;
+        }
+        if ($med_id ==10)
+        {
+            $price = $med1Price * $qty;
+        }
+
+
+
 
         // SQL Query to save the data into database
         $sql = "INSERT INTO prescription SET
@@ -82,7 +145,8 @@
             dr_name= '$dr_name',
             reason = '$reason',
             qty= '$qty',
-            med_name = '$med_name'
+            med_name = '$med_name',
+            price = '$price'
             
         ";
 

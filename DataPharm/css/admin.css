@@ -86,7 +86,6 @@ table tr td {
 .btn-primary:hover {
   background-color: #3742fa;
 }
-
 .btn-secondary {
   background-color: #7bed9f;
   padding: 1%;
@@ -111,6 +110,18 @@ table tr td {
   background-color: #ff4747;
 }
 
+.btn-dark {
+  background-color: #555555;
+  padding: 1%;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-dark:hover {
+  background-color: #e7e7e7;
+}
+
 .tbl-30 {
   width: 30%;
 }
@@ -121,4 +132,11 @@ table tr td {
 
 .error {
   color: #ff4747;
+}
+
+.img-responsive {
+  width: 100%;
+}
+.img-curve {
+  border-radius: 15px;
 }
