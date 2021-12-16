@@ -9,14 +9,20 @@
                 <br/>
                 <a href="http://localhost/DataPharm/admin/doctor/add-patient.php" class="btn-primary">Add Patient</a>
                 <br/><br/><br/>
-                <table class="tbl-full">
+                <table class="content-table">
+                    <thead>
                     <tr>
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Sex</th>
                         <th>Age</th>
+                        <th>Update</th>
+                        <th>Info</th>
+                        <th>Order</th>
+                        <th>Delete</th>
                     </tr>
+                </thead>
 
                     <?php 
                         // Query to get all Admin
@@ -46,20 +52,21 @@
 
                                     //display the values in our table
                                     ?>
+                                        <tbody>
                                         <tr>
                                             <td><?php echo $id.'.' ?></td>
                                             <td><?php echo $first_name ?></td>
                                             <td><?php echo $last_name ?></td>
                                             <td><?php echo $sex ?></td>
                                             <td><?php echo $age ?></td>
-                                            <td>
-                                                <a href="<?php echo SITEURL; ?>admin/doctor/update-patient.php?id=<?php echo $id; ?> " class="btn-primary">Update Info</a>
-                                                <a href="<?php echo SITEURL; ?>admin/doctor/more-info-patient.php?id=<?php echo $id; ?>" class="btn-secondary">More Info</a>
-                                                <a href="<?php echo SITEURL; ?>admin/doctor/file-order.php?id=<?php echo $id; ?>" class="btn-dark">File Order</a>
-                                                <a href="<?php echo SITEURL; ?>admin/doctor/delete-patient.php?id=<?php echo $id; ?> " class="btn-danger">Delete Info</a>
+                                            <td><a href="<?php echo SITEURL; ?>admin/doctor/update-patient.php?id=<?php echo $id; ?> " class="btn-primary">Update Info</a></td>
+                                            <td><a href="<?php echo SITEURL; ?>admin/doctor/more-info-patient.php?id=<?php echo $id; ?>" class="btn-secondary">More Info</a></td>
+                                            <td><a href="<?php echo SITEURL; ?>admin/doctor/file-order.php?id=<?php echo $id; ?>" class="btn-dark">File Order</a></td>
+                                            <td> <a href="<?php echo SITEURL; ?>admin/doctor/delete-patient.php?id=<?php echo $id; ?> " class="btn-danger">Delete Info</a></td>
                                                 
-                                            </td>
+                                            
                                         </tr>
+                                        </tbody>
 
                                     <?php
 

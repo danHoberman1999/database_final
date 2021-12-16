@@ -5,8 +5,8 @@
         <h1>Add Patient</h1>
         <br/><br/>
             <br/>
-        <form action="" method="POST">
-            <table class="tbl-30">
+        <form class = "form-style-5" action="" method="POST">
+            <table> 
                 <tr>
                     <td>First Name:</td>
                     <td><input type="text" name ="first_name" placeholder="Enter your first name"> </td>
@@ -18,15 +18,18 @@
                 </tr>
                 <tr>
                     <td>Age:</td>
-                    <td><input type="text" name ="age" placeholder="Enter your age"> </td>
+                    <td><input type="number" name ="age" placeholder="Enter your age"> </td>
                 </tr>
                 <tr>
                     <td>Weight:</td>
-                    <td><input type="text" name ="weight" placeholder="Enter your weight"> </td>
+                    <td><input type="number" name ="weight" placeholder="Enter your weight"> </td>
                 </tr>
                 <tr>
                     <td>Sex:</td>
-                    <td><input type="text" name ="sex" placeholder="Enter your sex"> </td>
+                    <td><select name="sex">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
                 </tr>
                 <tr>
                     <td>Diagnosis:</td>
@@ -38,7 +41,28 @@
                 </tr>
                 <tr>
                     <td>State:</td>
-                    <td><input type="text" name ="state" placeholder="Enter your state"> </td>
+                    <td>
+                        <select name="state">
+                            <option value="California">California</option>
+                            <option value="New Hampshire">New Hampshire</option>
+                            <option value="Nevada">Nevada</option>
+                            <option value="Colorado">Colorado</option>
+                            <option value="Arizona">Arizona</option>
+                            <option value="Texas">Texas</option>
+                            <option value="Oregon">Oregon</option>
+                            <option value="Minnesota">Minnesota</option>
+                            <option value="Michigan">Michigan</option>
+                            <option value="Montana">Montana</option>
+                            <option value="New Mexico">New Mexico</option>
+                            <option value="Washington">Washington</option>
+                            <option value="Alaska">Alaska</option>
+                            <option value="Hawaii">Hawaii</option>
+                            <option value="Utah">Utah</option>
+                            <option value="Idaho">Idaho</option>
+                            <option value="North Dakota">North Dakota</option>
+                            <option value="Wyoming">Wyoming</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2">

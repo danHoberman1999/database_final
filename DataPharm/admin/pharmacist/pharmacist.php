@@ -7,14 +7,19 @@
                 <h1>Pharmacist Console</h1>
                 <br/><br/>
                 <br/>
-                <table class="tbl-full">
+                <table class="content-table">
+                    <thead>
                     <tr>
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Sex</th>
                         <th>Age</th>
+                        <th>View Orders</th>
+                        <th>Pharmacy Purchase</th>
+                        <th>Choose Pharmacy</th>
                     </tr>
+                    </thead>
 
                     <?php 
                         // Query to get all Admin
@@ -44,18 +49,22 @@
 
                                     //display the values in our table
                                     ?>
+                                    <tbody>
                                         <tr>
                                             <td><?php echo $id.'.' ?></td>
                                             <td><?php echo $first_name ?></td>
                                             <td><?php echo $last_name ?></td>
                                             <td><?php echo $sex ?></td>
                                             <td><?php echo $age ?></td>
-                                            <td>
-                                                <a href="<?php echo SITEURL; ?>admin/pharmacist/view-orders.php?id=<?php echo $id; ?> " class="btn-primary">View Med Orders</a>
-                                                <a href="<?php echo SITEURL; ?>admin/pharmacist/goods-purchase.php?id=<?php echo $id; ?> " class="btn-secondary">Make Pharmacy Purchase</a>
-                                                <a href="<?php echo SITEURL; ?>admin/pharmacist/choose-pharmacy.php?id=<?php echo $id; ?>" class="btn-danger">Choose Pharmacy</a>  
-                                            </td>
+                                            <td><a href="<?php echo SITEURL; ?>admin/pharmacist/view-orders.php?id=<?php echo $id; ?> " class="btn-primary">View Med Orders</a></td>
+                                            <td><a href="<?php echo SITEURL; ?>admin/pharmacist/goods-purchase.php?id=<?php echo $id; ?> " class="btn-secondary">Make Pharmacy Purchase</a></td>
+                                            <td><a href="<?php echo SITEURL; ?>admin/pharmacist/choose-pharmacy.php?id=<?php echo $id; ?>" class="btn-danger">Choose Pharmacy</a>  </td>
+                                                
+                                                
+                                                
+                                        
                                         </tr>
+                                        </tbody>
 
                                     <?php
 

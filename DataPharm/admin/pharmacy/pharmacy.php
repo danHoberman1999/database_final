@@ -7,13 +7,16 @@
                 <h1>Pharmacy Console</h1>
                 <br/><br/>
                 <br/>
-                <table class="tbl-full">
+                <table class="content-table">
+                    <thead>
                     <tr>
                         <th>Pharmacy ID</th>
                         <th>Pharmacy Name</th>
                         <th>City</th>
                         <th>State</th>
+                        <th>View Orders</th>
                     </tr>
+                    </thead>
 
                     <?php 
                         // Query to get all Admin
@@ -42,6 +45,7 @@
 
                                     //display the values in our table
                                     ?>
+                                    <tbody></tbody>
                                         <tr>
                                             <td><?php echo $id.'.' ?></td>
                                             <td><?php echo $pharmacy_name ?></td>
@@ -51,6 +55,7 @@
                                                 <a href="<?php echo SITEURL; ?>admin/pharmacy/final-order.php?id=<?php echo $id; ?> " class="btn-primary">View Patients Orders</a>
                                             </td>
                                         </tr>
+                                        </tbody>
 
                                     <?php
 

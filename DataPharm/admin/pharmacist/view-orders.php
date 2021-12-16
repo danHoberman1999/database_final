@@ -7,7 +7,8 @@
                 <h1>View Orders</h1>
                 <br/><br/>
                 <br/>
-                <table class="tbl-full">
+                <table class="content-table">
+                    <thead>
                     <tr>
                         <th>Patient ID</th>
                         <th>Date</th>
@@ -17,6 +18,7 @@
                         <th>Qty</th>
                         <th>Reason for Prescription</th>
                     </tr>
+                    </thead>
 
                     <?php 
                         // Query to get all Admin
@@ -49,6 +51,7 @@
 
                                     //display the values in our table
                                     ?>
+                                    <tbody>
                                         <tr>
                                             <td><?php echo $patient_id ?></td>
                                             <td><?php echo $date ?></td>
@@ -58,6 +61,7 @@
                                             <td><?php echo $qty ?></td>
                                             <td><?php echo $reason ?></td>
                                         </tr>
+                                        </tbody>
 
                                     <?php
 

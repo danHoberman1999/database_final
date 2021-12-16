@@ -1,20 +1,37 @@
-<?php include('../partials/menu.php'); ?>
+<?php include('../pharmacy-partials/menu.php'); ?>
  
 <div class="main-content">
     <div class="wrapper">
         <h1>Goods Purchase</h1>
-        <br/><br/>
+        <br/><br/> 
             <br/>
 
         <?php
 
             $id = $_GET['id'];
         ?>
-        <form action="" method="POST">
-            <table class="tbl-30">
+        <form class = "form-style-5" action="" method="POST">
+            <table>
                 <tr>
                     <td>Item_Name:</td>
-                    <td><input type="text" name ="item_name" placeholder="Enter Item Name"> </td>
+                    <td><select name="item_name">
+                            <option value="Flintstone Gummies">Flintstone Gummies</option>
+                            <option value="Biofreeze Cream">Biofreeze Cream</option>
+                            <option value="Toothpaste">Toothpaste</option>
+                            <option value="Band-Aids">Band-Aids</option>
+                            <option value="Covid_Test">Covid_Test</option>
+                            <option value="Tums">Tums</option>
+                            <option value="Vicks VapoCool">Vicks VapoCool</option>
+                            <option value="Cough Drops">Cough Drops</option>
+                            <option value="Mucinex">Mucinex</option>
+                            <option value="ICY HOT">ICY HOT</option>
+                            <option value="Aquaphor">Aquaphor</option>
+                            <option value="Chapstick">Chapstick</option>
+                            <option value="Condoms">Condoms</option>
+                            <option value="Plan B">Plan B</option>
+                            <option value="Neosporon">Neosporon</option>
+                        </select>
+                        </td>
                 </tr>
 
                 <tr>
@@ -175,14 +192,14 @@
         {
             //Data Inserted
             //Redirect Page
-            //header("location: ".SITEURL."admin/pharmacist/pharmacist.php");
+            header("location: ".SITEURL."admin/pharmacist/pharmacist.php");
         }
         else
         {
             echo 'failed';
             //Failed to insert Data
             //Redirect Page
-            //header("location: ".SITEURL."admin/pharmacist/goods-purchase.php");
+            header("location: ".SITEURL."admin/pharmacist/goods-purchase.php");
         }
     }
 

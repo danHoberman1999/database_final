@@ -30,21 +30,25 @@ if ($res == true)
 }
 
 ?>
-                <table class="tbl-full">
+                <table class="content-table">
+                    <thead>
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>City</th>
                         <th>State</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <tr>
                         <td><?php echo $first_name ?></td>
                         <td><?php echo $last_name ?></td>
                         <td><?php echo $city ?></td>
                         <td><?php echo $state ?></td>
                     </tr>
+                    </tbody>
                 </table>
-                <form action="" method="POST">
+                <form class = "form-style-5" action="" method="POST">
             <table class="tbl-30">
                 <tr>
                     <td>Pharmacy ID:</td>
@@ -110,6 +114,7 @@ if ($res == true)
         }
         else
         {
+            echo 'item already inserted there';
             //Failed to insert Data
             //Redirect Page
             header("location: ".SITEURL."admin/pharmacist/choose-pharmacy.php");

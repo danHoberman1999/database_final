@@ -2,7 +2,7 @@
         <!-- Menu Section Ends -->
 
         <!-- Main Content Section Starts -->
-        <div class="main-content">
+        <div class="content-table">
             <div class="wrapper">
                 <h1>Patient Info</h1>
                 <br/><br/>
@@ -36,6 +36,7 @@
 
                 ?>
                 <table class="tbl-full">
+                    <thead>
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -46,6 +47,8 @@
                         <th>City</th>
                         <th>State</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <tr>
                         <td><?php echo $first_name ?></td>
                         <td><?php echo $last_name ?></td>
@@ -56,6 +59,7 @@
                         <td><?php echo $city ?></td>
                         <td><?php echo $state ?></td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

@@ -35,8 +35,8 @@
 
 
         ?>
-        <form action="" method="POST">
-            <table class="tbl-30">
+        <form class= "form-style-5" action="" method="POST">
+            <table>
                 <tr>
                     <td>First Name:</td>
                     <td><input type="text" name ="first_name" value="<?php echo $first_name; ?>"> </td>

@@ -10,8 +10,10 @@
 
             $id = $_GET['id'];
         ?>
-        <form action="" method="POST">
-            <table class="tbl-30">
+
+
+        <form class = "form-style-5" action="" method="POST">
+            <table >
                 <tr>
                     <td>Date:</td>
                     <td><input type="date" name ="date" placeholder="Enter Date"> </td>
@@ -19,11 +21,29 @@
 
                 <tr>
                     <td>Prescribing Doctor</td>
-                    <td><input type="text" name ="dr_name" placeholder="Enter prescribing Doctor name"> </td>
+                    <td><select name="dr_name">
+                            <option value="Dr. Mike">Dr. Mike</option>
+                            <option value="Dr. Teague">Dr. Teague</option>
+                            <option value="Dr. Anna">Dr. Anna</option>
+                            <option value="Dr. Roshanna">Dr. Roshanna</option>
+                        </select>
                 </tr>
                 <tr>
                     <td>Medicine Name:</td>
-                    <td><input type="text" name ="med_name" placeholder="Enter medicine name"> </td>
+                    <td>
+                    <select name="med_name">
+                            <option value="Atorvastatin">Atorvastatin</option>
+                            <option value="Levothyroxine">Levothyroxine</option>
+                            <option value="Lisinopril">Lisinopril</option>
+                            <option value="Metformin">Metformin</option>
+                            <option value="Amlodipine">Amlodipine</option>
+                            <option value="Metoprolol">Metoprolol</option>
+                            <option value="Albuterol">Albuterol</option>
+                            <option value="Omeprazole">Omeprazole</option>
+                            <option value="Losartan">Losartan</option>
+                            <option value="Simvastatin">Simvastatin</option>
+                        </select>
+                        </td>
                 </tr>
                 <tr>
                     <td>Medicine ID:</td>
@@ -31,7 +51,7 @@
                 </tr>
                 
                 <tr>
-                    <td>Qty:</td>
+                    <td>Qty (tablets):</td>
                     <td><input type="number" name ="qty" placeholder="Enter qty prescribed"> </td>
                 </tr>
 

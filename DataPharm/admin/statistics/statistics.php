@@ -88,9 +88,14 @@
         echo 'Error with PHP';
     }
 
-    $sql = "SELECT price, SUM(price)
-            FROM exchange JOIN prescription USING (patient_id)
-            GROUP BY price";
+
+    $sql = "SELECT p.patient_id, MAX(COALESCE(s.price,0) + COALESCE(m.price,0)) AS amountSpent
+    FROM patient p 
+            JOIN prescription s USING (patient_id)
+            JOIN med_goods m USING (patient_id)
+    GROUP BY p.patient_id
+    ORDER BY amountSpent DESC
+    LIMIT 1";
 
     $res = mysqli_query($conn, $sql);
 
@@ -98,16 +103,20 @@
     {
         $row = mysqli_fetch_assoc($res);
 
-        $profitPrescriptions = $row['price'];
+        $maxSpentPatientId = $row['patient_id'];
+        $maxSpentPatientAmount = $row['amountSpent'];
+        
     }
     else
     {
         echo 'Error with PHP';
     }
 
-    $sql = "SELECT price, SUM(price)
-            FROM exchange JOIN med_goods USING (patient_id)
-            GROUP BY price";
+    $sql = "SELECT m.patient_id, MAX(m.price) AS amountSpent
+    FROM med_goods m
+    GROUP BY m.patient_id
+    ORDER BY amountSpent DESC
+    LIMIT 1";
 
     $res = mysqli_query($conn, $sql);
 
@@ -115,26 +124,19 @@
     {
         $row = mysqli_fetch_assoc($res);
 
-        $profitMedGoods = $row['price'];
+        $maxSpentMedGoodsId = $row['patient_id'];
+        $maxSpentMedGoodsAmount = $row['amountSpent'];
     }
     else
     {
         echo 'Error with PHP';
     }
 
-    $sql = "SELECT price, SUM(price) total FROM
-            (
-                SELECT price
-                FROM exchange JOIN med_goods USING (patient_id)
-                GROUP BY price
-                UNION ALL
-                SELECT price
-                FROM exchange JOIN prescription USING (patient_id)
-                GROUP BY price
-
-            ) t
-            group by price
-            ";
+    $sql = "SELECT p.patient_id, MAX(p.price) AS amountSpent
+    FROM prescription p
+    GROUP BY p.patient_id
+    ORDER BY amountSpent DESC
+    LIMIT 1";
 
     $res = mysqli_query($conn, $sql);
 
@@ -142,50 +144,95 @@
     {
         $row = mysqli_fetch_assoc($res);
 
-        $totalProfit = $row['price'];
-        echo $totalProfit;
+        $maxSpentPharmacyId = $row['patient_id'];
+        $maxSpentPharmacyAmount = $row['amountSpent'];
     }
     else
     {
         echo 'Error with PHP';
     }
+
+    $sql = "SELECT COUNT(p.patient_id) AS numJustPrescription
+    FROM patient p
+        JOIN prescription s USING(patient_id)
+        LEFT JOIN med_goods m ON(s.patient_id = m.patient_id)
+    WHERE m.price IS NULL";
+
+    $res = mysqli_query($conn, $sql);
+
+    if($res ==true)
+    {
+        $row = mysqli_fetch_assoc($res);
+
+        $numPrescription = $row['numJustPrescription'];
+    }
+    else
+    {
+        echo 'Error with PHP';
+    }
+
+    $sql = "SELECT COUNT(p.patient_id) AS numJustGoods
+    FROM patient p
+        JOIN med_goods m USING(patient_id)
+        LEFT JOIN prescription s ON(s.patient_id = m.patient_id)
+    WHERE s.price IS NULL";
+
+    $res = mysqli_query($conn, $sql);
+
+    if($res ==true)
+    {
+        $row = mysqli_fetch_assoc($res);
+
+        $numGoods = $row['numJustGoods'];
+    }
+    else
+    {
+        echo 'Error with PHP';
+    }
+
 
 ?>
 
 
 
 
-<div class="main-content">
+<div class="statistics-page">
             <div class="wrapper">
                 <h1>Statistics</h1>
                 <br/><br/>
                 <br/>
-                <h3>Total Pharmacy Profit:</h3>
-                <h4><?php echo 'total= $'.$totalProfit?></h4>
+                <h3>Number of patients who only spent money on prescriptions:</h3>
+                <ul><li><?php echo 'count = '.$numPrescription?></li></ul>
                 <br/>
-                <h3>Total Pharmacy Profit from prescriptions:</h3>
-                <h4><?php echo 'total= $'.$profitPrescriptions?></h4>
+                <h3>Number of patients who only spent money on pharmacy goods:</h3>
+                <ul><li><?php echo 'count = '.$numGoods?></li></ul>
                 <br/>
-                <h3>Total Pharmacy Profit from pharmacy goods:</h3>
-                <h4><?php echo 'total= $'.$profitMedGoods?></h4>
+                <h3>Most spent by patient:</h3>
+                <ul><li><?php echo 'patient_id = '.$maxSpentPatientId.' total= $'.$maxSpentPatientAmount?></li></ul>
+                <br/>
+                <h3>Most spent on pharmacy goods: </h3>
+                <ul><li><?php echo 'patient_id = '.$maxSpentMedGoodsId.' total= $'.$maxSpentMedGoodsAmount?></li></ul>
+                <br/>
+                <h3>Most spent on prescription goods:</h3>
+                <ul><li><?php echo 'patient_id = '.$maxSpentPharmacyId.' total= $'.$maxSpentPharmacyAmount?></li></ul>
                 <br/>
                 <h3>Most chosen Pharmacy:</h3>
-                <h4><?php echo 'pharmacy_id= '.$mostCommonPharmacy?></h4>
+                <ul><li><?php echo 'pharmacy_id= '.$mostCommonPharmacy?></li></ul>
                 <br/>
                 <h3>Most commonly prescribed medication:</h3>
-                <h4><?php echo 'med_id = '.$mostCommonMedicine?></h4>
+                <ul><li><?php echo 'med_id = '.$mostCommonMedicine?></li></ul>
                 <br/>
                 <h3>Most commonly bought good:</h3>
-                <h4><?php echo 'item_id = '.$mostCommonGood?></h4>
+                <ul><li><?php echo 'item_id = '.$mostCommonGood?></li></ul>
                 <br/>
                 <h3>Least chosen Pharmacy:</h3>
-                <h4><?php echo 'pharmacy_id= '.$leastCommonPharmacy?></h4>
+                <ul><li><?php echo 'pharmacy_id= '.$leastCommonPharmacy?></li></ul>
                 <br/>
                 <h3>Least commonly prescribed medication:</h3>
-                <h4><?php echo 'med_id = '.$leastCommonMedicine?></h4>
+                <ul><li><?php echo 'med_id = '.$leastCommonMedicine?></li></ul>
                 <br/>
                 <h3>Least commonly bought good:</h3>
-                <h4><?php echo 'item_id = '.$leastCommonGood?></h4>
+                <ul><li><?php echo 'item_id = '.$leastCommonGood?></li></ul>
             </div>
 </div>
 
